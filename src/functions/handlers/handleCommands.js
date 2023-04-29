@@ -18,14 +18,14 @@ module.exports = (client) => {
                 console.log(`Command: ${command.data.name} loaded!`);
             }
         }
-        const { CLIENT_ID, GUILD_ID, TOKEN } = process.env;
+        const { CLIENT_ID, TOKEN } = process.env;
         const rest = new REST({ version: '10' }).setToken(TOKEN);
 
         try {
             console.log('Started refreshing application (/) commands.');
 
             await rest.put(
-                Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+                Routes.applicationCommands(CLIENT_ID),
                 { body: client.commandArray },
             );
 
