@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 
@@ -18,14 +17,13 @@ module.exports = (client) => {
                 console.log(`Command: ${command.data.name} loaded!`);
             }
         }
-        const { CLIENT_ID, TOKEN } = process.env;
-        const rest = new REST({ version: '10' }).setToken(TOKEN);
+        const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
         try {
             console.log('Started refreshing application (/) commands.');
 
             await rest.put(
-                Routes.applicationCommands(CLIENT_ID),
+                Routes.applicationCommands(process.env.CLIENT_ID),
                 { body: client.commandArray },
             );
 
