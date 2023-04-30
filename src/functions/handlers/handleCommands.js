@@ -1,5 +1,6 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
+require('dotenv').config();
 
 module.exports = (client) => {
     client.handleCommands = async () => {
