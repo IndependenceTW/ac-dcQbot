@@ -18,9 +18,9 @@ module.exports = {
         client.queue.splice(client.queue.indexOf(interaction.user.id), 1);
         await interaction.editReply('你已經離開了隊伍！');
 
-        if(index < client.numOfInvites) {
+        if(index < client.numOfInvites && client.queue.length >= 1) {
             msg = '有人離開了隊伍 請';
-            for (let i = 0; i < client.numOfInvites; i++) {
+            for (let i = 0; i < client.numOfInvites && i < client.queue.length; i++) {
             msg = `${msg}\n<@${client.queue[i]}> `;
             }
             msg = `${msg}\n加入房間\n請用 /status 查看房間代碼`;

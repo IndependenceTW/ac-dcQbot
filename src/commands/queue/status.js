@@ -24,7 +24,7 @@ module.exports = {
 
         const index = client.queue.indexOf(interaction.user.id);
         if (index < client.numOfInvites && index != -1) {
-            msg = `${msg}\n你的位置在第${index}位，你可以進入房間了！\n 房間號碼是${client.roomCode}`;
+            msg = `${msg}\n你的位置在第${index + 1}位，你可以進入房間了！\n 房間號碼是${client.roomCode}`;
         }
         await interaction.editReply(msg);
 

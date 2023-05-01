@@ -20,9 +20,9 @@ module.exports = {
         client.queue.push(interaction.user.id);
         await interaction.editReply(`你已經成功重新排隊，你在第${client.queue.length}位`);
 
-        if(index < client.numOfInvites) {
+        if(index < client.numOfInvites && client.queue.length >= 1) {
             msg = '有人重新排隊了 請';
-            for (let i = 0; i < client.numOfInvites; i++) {
+            for (let i = 0; i < client.numOfInvites && i < client.queue.length; i++) {
                 msg = `${msg}\n<@${client.queue[i]}> `;
             }
             msg = `${msg}\n加入房間\n請用 /status 查看房間代碼`;
